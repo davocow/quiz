@@ -40,6 +40,11 @@ a:link, a:hover, a:visited, a:active
   text-decoration: none;
   color: rgb(50, 62, 77);
 }
+
+a:hover
+{
+  color: blue;
+}
 /* *************** */
 
  /* Tabla genérica */

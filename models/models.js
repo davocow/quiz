@@ -2,13 +2,14 @@ var path = require('path');
 // Cargamos el Modelo ORM
 var Sequelize = require('sequelize');
 
+//postgres://pwwvjehzovksfw:dkWN0pf6tSs69gbmJ937SYfRwn@ec2-54-204-20-209.compute-1.amazonaws.com:5432/deiuu62h2co9jn
 //DATABASE_URL = postgres://user:passwd@host:port/database
 //DATABASE_STORAGE = sqlite://:@:/
 var url = process.env.DATABASE_URL.match(/(.*)\:\/\/(.*?)\:(.*)@(.*)\:(.*)\/(.*)/);
 var DB_name = (url[6] || null);
 var user = (url[2] || null);
 var pwd = (url[3] || null);
-var protocol = (url[1] || null);
+var protocol = (url[0] || null);
 var dialect = (url[1] || null);
 var port = (url[5] || null);
 var host = (url[4] || null);

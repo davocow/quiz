@@ -40,8 +40,16 @@ bbdd.sync().then(function(){
 				pregunta: '¿Cuál es la capital de Italia?',
 				respuesta: 'Roma'
 			}).then(function(){
+				console.log('Primera pregunta por defecto creada');
+			});
+			
+			Quiz.create({
+				pregunta: '¿Cuál es la capital de España?',
+				respuesta: 'Madrid'
+			}).then(function(){
+				console.log('Segunda pregunta por defecto creada')
 				console.log('Base de datos inicializada');
-			})
+			});
 		}
 	});
 });

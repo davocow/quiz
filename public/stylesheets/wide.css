@@ -1,11 +1,11 @@
-body
-{
-	background: #999;
-}
-
 #page-wrap:after
 {
 	content: "Wide Layout";
+}
+
+h3
+{
+	color: green;
 }
 
 nav
@@ -17,13 +17,14 @@ nav
 
 nav span
 {
-	margin: 0px 100px 0px 0px;
+	margin: 0px 100px 0px 10px;
 }
 
 section
 {
+	background: white;
 	float: right;
-	width: 80%;
+	width: 80.9%;
 	height: 200px;
 }
 

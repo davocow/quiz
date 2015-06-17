@@ -1,9 +1,48 @@
+@-o-viewport
+{
+  width: device-width;
+  zoom: 1.0;
+  min-zoom: 1.0;
+  max-zoom: 1.0;
+}
+
+@-ms-viewport{
+  width: device-width;
+  zoom: 1.0;
+  min-zoom: 1.0;
+  max-zoom: 1.0;
+}
+
+@viewport
+{
+  width: device-width;
+  zoom: 1.0;
+  min-zoom: 1.0;
+  max-zoom: 1.0;
+}
+
+/* Fin Zona ViewPort */
+
 * 
 { 
   margin: 0;
-  padding: 0;  
+  padding: 0;
 }
 
+body
+{
+  background: lightslategray;
+}
+
+/* **** LINKS **** */
+a:link, a:hover, a:visited, a:active
+{
+  text-decoration: none;
+  color: rgb(50, 62, 77);
+}
+/* *************** */
+
+ /* Tabla genérica */
 table
 {
 	margin-left: auto;
@@ -15,6 +54,7 @@ td
   padding: 4px 4px 0px 4px;
   border: 1px solid green;
 }
+/* Fin tabla genérica*/
 
 body 
 {
@@ -29,18 +69,30 @@ body
 
 #page-wrap > .main
 {
-  border: 1px solid #999;
   padding: 1%;
   margin-bottom: 1px;
   color: black;  
 }
 
-section > div
+section 
 {
-  padding: 20px;
+  height: 300px;
+  background: white;
+  text-align: center;
 }
 
-header, nav, section
+header
+{
+  background: rgb(47,	58,	72);
+  text-align: center;
+}
+
+header h2
+{
+  color: white;
+}
+
+nav
 {
   background: #eee;
   text-align: center;

@@ -1,0 +1,59 @@
+/* **** Zona ViewPort **** */
+/*
+Cuando visitas un sitio por medio de un navegador móvil, éste asumirá que estás visualizando una gran experiencia de escritorio y que lo 
+quieres ver todo, no solo la esquina superior izquierda. Éste fijará por tanto el ancho del viewport a (en el caso de Safari en iOS) 980px, 
+calzando todo dentro de su pequeño display. Para que esto no ocurra, podemos indicar en la cabecera HTML, podemos indicar una etiqueta de nombre 
+'viewport' de la manera siguiente:
+
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+
+Dentro de content podemos incluir los siguientes parametros:
+->width:
+   Si ponemos el valor 'device-width' indicamos que el layout es flexible. Podemos indicar un valor
+   fijo de 'width' de la forma (width=320).
+->initial-scale:
+   Permite fija el nivel de zoom de la página
+->minimun-scale:
+   Fija el mínimo de zoom que el usuario puede hacer
+->maximum-scale:
+   Fija el máximo de zoom que el usuario puede hacer
+->user-scalable:
+   Activa/Desactiva que el usuario pueda hacer zoom
+*/
+
+@-o-viewport
+{
+  width: device-width;
+  zoom: 1.0;
+  min-zoom: 1.0;
+  max-zoom: 1.0;
+}
+
+@-ms-viewport{
+  width: device-width;
+  zoom: 1.0;
+  min-zoom: 1.0;
+  max-zoom: 1.0;
+}
+
+@viewport
+{
+  width: device-width;
+  zoom: 1.0;
+  min-zoom: 1.0;
+  max-zoom: 1.0;
+}
+
+/* ***********************************************************/
+
+div h2
+{
+  /* Esta definición implicaría los estilos para los elementos H2 
+     dentro de DIV*/
+}
+
+#idEjemplo
+{
+  /* Esta definición implicaría los estilos para el elemento con 
+     ID = "IDEJEMPLO"
+}

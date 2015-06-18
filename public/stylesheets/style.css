@@ -49,9 +49,9 @@ a:hover
 
 #lstPreguntas
 {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   border-collapse: collapse;
+  width: 69%;
 }
 
 #lstPreguntas th
@@ -67,6 +67,50 @@ a:hover
   padding: 5px;
   border: 1px solid rgb(50, 62, 77);
 }
+
+/* **** Formulario de Búsqueda de Preguntas **** */
+#frmBusqueda
+{
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#dvContenedor
+{
+  display: table;
+  border: 1px solid rgb(50, 62, 77);
+}
+
+#dvContenedor div
+{
+  position: relative;
+}
+
+#dvCabeceraBuscador
+{
+  background: lightslategray;
+  border-bottom: 1px solid rgb(50, 62, 77);
+  color: white;
+}
+
+#dvContenedor div label, input[type="text"]
+{
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+#dvContenedor div input[type="submit"]
+{
+  float: right;
+  position: relative;
+  margin-right: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/* **** Fin de estilos FORMULARIO BUSQUEDA**** */
 
  /* Tabla genérica */
 table
@@ -102,7 +146,7 @@ body
 
 section 
 {
-  height: 300px;
+  height: 100%;
   background: white;
   text-align: center;
 }

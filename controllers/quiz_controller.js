@@ -1,5 +1,13 @@
 var models = require('../models/models.js');
 
+function CleanSearch(search)
+{
+		search = search.trim();
+		search = search.replace(/\s+/,'%');
+		search = '%' + search + '%';
+		return search;
+}
+
 // Autoload!
 exports.load = function(req, res, next, quizId)
 {
@@ -20,11 +28,23 @@ exports.load = function(req, res, next, quizId)
 // GET /quizes
 exports.index = function(req, res)
 {
-	models.Quiz.findAll().then(function(quizes){
-		res.render('quizes/index', {quizes: quizes});	
-	}).catch(function(error){
-		next(error);
-	});
+	if(req.query.search)
+	{
+		
+		models.Quiz.findAll({where: ["pregunta like ?", CleanSearch(req.query.search)]}).then(function(quizes){
+			res.render('quizes/index', {quizes: quizes});
+		}).catch(function(error){
+			next(error);
+		});
+	}
+	else
+	{
+		models.Quiz.findAll().then(function(quizes){
+			res.render('quizes/index', {quizes: quizes});	
+		}).catch(function(error){
+			next(error);
+		});
+	}
 };
 
 // GET /quizes/:quizId(\\d+)

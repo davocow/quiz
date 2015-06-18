@@ -1,4 +1,20 @@
 <br/>
+	<form id="frmBusqueda" method="get" action="/quizes">
+		<div id="dvContenedor">
+			<div id="dvCabeceraBuscador">
+				<h4>Buscador<h4>
+			</div>
+  			<div>
+			<label for="search">Pregunta:</label>
+  			<input type="text" id="search" name="search" size="33" />
+			</div>
+ 			<div>
+  			<input type="submit" value="Buscar" />
+			</div>
+		</div>
+	</form>
+</br>
+<% if(quizes.length > 0) {%>
 <table id="lstPreguntas">
 <tr>
 	<th> Preguntas </th>
@@ -11,3 +27,7 @@
 	</tr>
 <% } %>
 </table>
+<% } else { %>
+	<h3> Sin resultados para la búsqueda </h3>
+<% } %>
+<br/>

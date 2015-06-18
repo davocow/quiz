@@ -1,18 +1,14 @@
-#page-wrap:after
-{
-	content: "Wide Layout";
-}
-
 nav
 {
 	float: left;
 	width: 15%;
-	height: 200px;
+	height: 400px;
 }
 
 nav span
 {
-	margin: 0px 100px 0px 10px;
+	display: table;
+	margin: 0 auto;
 }
 
 section
@@ -20,7 +16,7 @@ section
 	background: white;
 	float: right;
 	width: 80.9%;
-	height: 200px;
+	height: 400px;
 }
 
 footer

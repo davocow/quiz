@@ -36,6 +36,7 @@ bbdd.sync().then(function(){
 		// La tabla se inicializa si está vacía
 		if(count === 0)
 		{
+			//Creamos la primera PREGUNTA
 			Quiz.create({
 				pregunta: '¿Cuál es la capital de Italia?',
 				respuesta: 'Roma'
@@ -43,6 +44,7 @@ bbdd.sync().then(function(){
 				console.log('Primera pregunta por defecto creada');
 			});
 			
+			//Creamos la segunda pregunta
 			Quiz.create({
 				pregunta: '¿Cuál es la capital de España?',
 				respuesta: 'Madrid'

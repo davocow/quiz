@@ -2,25 +2,22 @@ nav
 {
 	float: left;
 	width: 15%;
-	height: 400px;
+	height: 90%;
+	border: 1px solid lightslategray;
+	padding: 1% 0% 0% 0%;
 }
 
 nav span
 {
-	display: table;
+	display: block;
 	margin: 0 auto;
+	padding: 0px 0px 4px 0px;
 }
 
-section
+#dvContenido
 {
 	background: white;
-	float: right;
-	width: 80.9%;
-	height: 400px;
-}
-
-footer
-{
-	clear: both;
-	display: block;
+	float: left;
+	width: 84.5%;
+	height: 90%;
 }

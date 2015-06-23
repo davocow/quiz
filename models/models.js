@@ -40,45 +40,45 @@ bbdd.sync().then(function(){
 		if(count === 0)
 		{
 			Category.create({nombre: 'Humanidades'}).then(function(){
-				console.log('Categoría \'Humanidades\' creada.')
+				console.log('Categoría \'Humanidades\' creada.');
+				// Ejecutamos el callback cuando se ha sincronizado correctamente (QUIZ)
+				Quiz.count().then(function(count){
+					// La tabla se inicializa si está vacía
+					if(count === 0)
+					{
+						//Creamos la primera PREGUNTA
+						Quiz.create({
+							pregunta: '¿Cuál es la capital de Italia?',
+							respuesta: 'Roma',
+							CategoryId: 1
+						}).then(function(){
+							console.log('Primera pregunta por defecto creada');
+						});
+			
+						//Creamos la segunda pregunta
+						Quiz.create({
+							pregunta: '¿Cuál es la capital de España?',
+							respuesta: 'Madrid',
+							CategoryId: 1
+						}).then(function(){
+							console.log('Segunda pregunta por defecto creada')
+						});
+					}
+				});
 			});
 			Category.create({nombre: 'Ocio'}).then(function(){
-				console.log('Categoría \'Ocio\' creada.')
+				console.log('Categoría \'Ocio\' creada.');
 			});
 			Category.create({nombre: 'Tecnología'}).then(function(){
-				console.log('Categoría \'Tecnología\' creada.')
+				console.log('Categoría \'Tecnología\' creada.');
 			});
 			Category.create({nombre: 'Ciencias'}).then(function(){
-				console.log('Categoría \'Ciencias\' creada.')
+				console.log('Categoría \'Ciencias\' creada.');
 			});
 			Category.create({nombre: 'Otros'}).then(function(){
-				console.log('Categoría \'Otros\' creada.')
+				console.log('Categoría \'Otros\' creada.');
 			});
 		}
 	});
-	// Ejecutamos el callback cuando se ha sincronizado correctamente (QUIZ)
-	Quiz.count().then(function(count){
-		// La tabla se inicializa si está vacía
-		if(count === 0)
-		{
-			//Creamos la primera PREGUNTA
-			Quiz.create({
-				pregunta: '¿Cuál es la capital de Italia?',
-				respuesta: 'Roma',
-				CategoryId: 1
-			}).then(function(){
-				console.log('Primera pregunta por defecto creada');
-			});
-			
-			//Creamos la segunda pregunta
-			Quiz.create({
-				pregunta: '¿Cuál es la capital de España?',
-				respuesta: 'Madrid',
-				CategoryId: 1
-			}).then(function(){
-				console.log('Segunda pregunta por defecto creada')
-				console.log('Base de datos inicializada');
-			});
-		}
-	});
+	
 });

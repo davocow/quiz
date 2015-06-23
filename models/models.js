@@ -36,9 +36,12 @@ exports.Quiz = Quiz;
 exports.Category = Category;
 // Crea e inicializa la tabla de preguntas en DB
 bbdd.sync().then(function(){
+	//Ejecutamos el callback, primero, de la tabla CATEGORY, para cargar las categorias necesarias
+	//para crear preguntas
 	Category.count().then(function(count){
 		if(count === 0)
 		{
+			//Creamos una categoría
 			Category.create({nombre: 'Humanidades'}).then(function(){
 				console.log('Categoría \'Humanidades\' creada.');
 				// Ejecutamos el callback cuando se ha sincronizado correctamente (QUIZ)
@@ -53,30 +56,33 @@ bbdd.sync().then(function(){
 							CategoryId: 1
 						}).then(function(){
 							console.log('Primera pregunta por defecto creada');
-						});
-			
-						//Creamos la segunda pregunta
-						Quiz.create({
-							pregunta: '¿Cuál es la capital de España?',
-							respuesta: 'Madrid',
-							CategoryId: 1
-						}).then(function(){
-							console.log('Segunda pregunta por defecto creada')
+							//Creamos la segunda pregunta
+							Quiz.create({
+								pregunta: '¿Cuál es la capital de España?',
+								respuesta: 'Madrid',
+								CategoryId: 1
+							}).then(function(){
+								console.log('Segunda pregunta por defecto creada');
+								//Creamos otra categoría
+								Category.create({nombre: 'Ocio'}).then(function(){
+									console.log('Categoría \'Ocio\' creada.');
+									//Creamos otra categoria
+									Category.create({nombre: 'Tecnología'}).then(function(){
+										console.log('Categoría \'Tecnología\' creada.');
+										//Creamos otra categoria
+										Category.create({nombre: 'Ciencias'}).then(function(){
+											console.log('Categoría \'Ciencias\' creada.');
+											//Creamos otra categoria
+											Category.create({nombre: 'Otros'}).then(function(){
+												console.log('Categoría \'Otros\' creada.');
+											});
+										});
+									});
+								});
+							});
 						});
 					}
 				});
-			});
-			Category.create({nombre: 'Ocio'}).then(function(){
-				console.log('Categoría \'Ocio\' creada.');
-			});
-			Category.create({nombre: 'Tecnología'}).then(function(){
-				console.log('Categoría \'Tecnología\' creada.');
-			});
-			Category.create({nombre: 'Ciencias'}).then(function(){
-				console.log('Categoría \'Ciencias\' creada.');
-			});
-			Category.create({nombre: 'Otros'}).then(function(){
-				console.log('Categoría \'Otros\' creada.');
 			});
 		}
 	});

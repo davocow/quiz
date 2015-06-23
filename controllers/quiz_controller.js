@@ -38,7 +38,7 @@ exports.index = function(req, res, next)
 	}
 	else
 	{
-		models.Quiz.findAll({include:[models.Category]}).then(function(quizes){
+		models.Quiz.findAll().then(function(quizes){
 			res.render('quizes/index', {quizes: quizes, errors: []});	
 		}).catch(function(error){
 			next(error);

@@ -21,3 +21,8 @@ nav span
 	width: 84.5%;
 	height: 90%;
 }
+
+input[type="text"]
+{
+	width: 280px;
+}

@@ -67,3 +67,22 @@ exports.answer = function(req, res)
 		}
 		res.render('quizes/answer', {respuesta: solucion, quiz: req.quiz});	
 };
+
+// GET /quizes/new
+exports.new = function(req, res)
+{
+	var quiz = models.Quiz.build({pregunta: 'Pregunta', respuesta: 'Respuesta'});
+	
+	res.render('quizes/questionForm', {quiz: quiz, action: '/quizes/create', header: 'Nueva Pregunta'});
+};
+
+// POST /quizes/create
+exports.create = function(req, res)
+{
+	var quiz = models.Quiz.build(req.body.quiz);
+	
+	quiz.save({fields:["pregunta", "respuesta"]}).then(function(){
+		res.redirect('/quizes');
+	});
+};
+

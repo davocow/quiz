@@ -1,0 +1,21 @@
+<br/>
+<div id="dvContendorNuevaModificarPregunta" class="dvContenedorFormulario">
+	<div class="dvCabeceraFormulario">
+		<h4><%= header %><h4>
+	</div>
+
+	<form id="frmQuestion" method="post" action="<%= action %>">
+		<div class="dvLabelYinputTypeText">
+			<label for="preg" class="rem">Pregunta: </label>
+			<input type="text" id="preg" name="quiz[pregunta]" value="<%= quiz.pregunta %>" />
+		</div>
+		<div class="dvLabelYinputTypeText">
+			<label for="resp" class="rem">Respuesta: </label>
+			<input type="text" id="resp" name="quiz[respuesta]" value="<%= quiz.respuesta %>" />
+		</div>
+		<div class="dvBotonera">
+		<a class="boton rojo" href="/quizes">Cancelar</a>
+		<a class="boton azul" href="#" onclick="document.getElementById('frmQuestion').submit()">Guardar</a>
+		</div>
+	</form>
+</div>

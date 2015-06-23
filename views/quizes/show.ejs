@@ -1,7 +1,7 @@
-<form method="get" action="/quizes/<%=quiz.id%>/answer">
+<form id="frmResponderPregunta" method="get" action="/quizes/<%=quiz.id%>/answer">
 	<br/>
 	Pregunta: <%= quiz.pregunta %><p>
 	<br/>
 	<input type="text" name="respuesta" value="Responda aquí"/>
-	<input type="submit" value="Envíar" />
+	<a class="boton azul" href="#" onclick="document.getElementById('frmResponderPregunta').submit()">Responder</a>
 </form>

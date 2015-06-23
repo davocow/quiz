@@ -40,13 +40,14 @@ body
 }
 
 /* **** LINKS **** */
-a:link, a:hover, a:visited, a:active
+.enlaceGenerico
 {
   text-decoration: none;
   color: rgb(50, 62, 77);
+  cursor: pointer;
 }
 
-a:hover
+.enlaceGenerico:hover
 {
   color: cornflowerblue;
 }
@@ -73,30 +74,132 @@ a:hover
   border: 1px solid rgb(50, 62, 77);
 }
 
+/* **** Botón **** */
+
+.boton{
+      text-align:center;
+      text-decoration: none;
+      font-family: 'Helvetica Neue', Helvetica, sans-serif;
+      font-size: small;
+      display:inline-block;
+      color: white;
+      background: #7F8C8D;
+      padding: 5px 10px;
+      white-space: nowrap;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      -webkit-transition: all 0.2s ease-in-out;
+      -ms-transition: all 0.2s ease-in-out;
+      -moz-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+}
+      
+.azul, .menu{ 
+  background: rgb(50, 62, 77);
+  color: white;
+  cursor: pointer;
+}
+
+.azul:hover{
+  background: #eee;
+  color: rgb(50, 62, 77);
+}
+
+.menu:hover
+{
+  background: lightcyan;
+  color: rgb(50, 62, 77);
+}
+
+.naranja
+{
+  background: darkorange;
+  color: white;
+  cursor: pointer;
+}
+
+.naranja:hover
+{
+  background: orange;
+}
+
+.rojo
+{
+  background: darkred;
+  color: white;
+  cursor: pointer;
+}
+
+.rojo:hover
+{
+  background: red;
+}
+
+
+/* *************** */
+
+/* **** Estilo genérico formulario **** */
+
+.dvCabeceraFormulario
+{
+  background: lightslategray;
+  border-bottom: 1px solid rgb(50, 62, 77);
+  color: white;
+  width: 100%; 
+}
+
+.dvContenedorFormulario
+{
+  display: inline-block;
+  margin: 0 auto;
+  border: 1px solid rgb(50, 62, 77);
+}
+
+.dvLabelYinputTypeText
+{
+  margin: 1% auto;
+  text-align: right;
+}
+
+.dvLabelYinputTypeText label
+{
+  margin-left: 5px;
+}
+
+.dvLabelYinputTypeText input[type="text"]
+{
+  margin-right: 5px; 
+  font-size: small;
+}
+
+.dvBotonera
+{
+  float:right;
+  margin-top: 1.2%;
+  margin-right: 1.4%;
+  margin-bottom: 1.2%;
+}
+
+/* **** Fin estilo genérico formulario **** */
+
 /* **** Formulario de Búsqueda de Preguntas **** */
 #frmBusqueda
 {
-  display: table;
+  display: inline-block;
   margin-left: auto;
   margin-right: auto;
 }
 
-#dvContenedor
+#dvContenedorBusqueda
 {
-  display: table;
-  border: 1px solid rgb(50, 62, 77);
+  margin-bottom: 25px;
 }
 
 #dvContenedor div
 {
   position: relative;
-}
-
-#dvCabeceraBuscador
-{
-  background: lightslategray;
-  border-bottom: 1px solid rgb(50, 62, 77);
-  color: white;
 }
 
 #dvContenedor div label, input[type="text"]
@@ -106,16 +209,19 @@ a:hover
   margin-left: 5px;
 }
 
-#dvContenedor div input[type="submit"]
+input[type="text"]
 {
-  float: right;
-  position: relative;
-  margin-right: 1.9%;
-  margin-top: 1%;
-  margin-bottom: 1%;
+  width: 160px;
+  font-size: small;
 }
 
-/* **** Fin de estilos FORMULARIO BUSQUEDA**** */
+/* **** Fin de estilos FORMULARIO BUSQUEDA **** */
+
+/* **** Estilo Formuario Nueva/Modificar pregunta **** */
+
+
+
+/* **** Fin Formuario Nueva/Modificar pregunta **** */
 
  /* Tabla genérica */
 table

@@ -17,6 +17,10 @@ router.get('/quizes', quizController.index);
 router.get('/quizes/:quizId(\\d+)', quizController.show);
 // GET answer page
 router.get('/quizes/:quizId(\\d+)/answer', quizController.answer);
+//GET new quiz page
+router.get('/quizes/new', quizController.new)
+// POST create quiz page
+router.post('/quizes/create', quizController.create);
 // GET credits page
 router.get('/author', authorController.author);
 

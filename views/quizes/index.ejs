@@ -1,18 +1,21 @@
 <br/>
 	<form id="frmBusqueda" method="get" action="/quizes">
-		<div id="dvContenedor">
-			<div id="dvCabeceraBuscador">
+		<div id="dvContenedorBusqueda" class="dvContenedorFormulario">
+			<div class="dvCabeceraFormulario">
 				<h4>Buscador<h4>
 			</div>
-  			<div>
-			<label for="search">Pregunta:</label>
-  			<input type="text" id="search" name="search" />
+  			<div class="dvLabelYinputTypeText">
+				<label for="search">Pregunta:</label>
+  				<input type="text" id="search" name="search" />
 			</div>
- 			<div>
-  			<input type="submit" value="Buscar" />
+ 			<div class="dvBotonera">
+  				<a href="#" class="boton azul" onclick="document.getElementById('frmBusqueda').submit()">Buscar </a>
 			</div>
 		</div>
 	</form>
+</br>
+<a class="boton azul" href="/quizes/new">Crear Pregunta</a>
+</br>
 </br>
 <% if(quizes.length > 0) {%>
 <table id="lstPreguntas">
@@ -22,7 +25,11 @@
 <% var i; for(i = 0; i < quizes.length; i++) {%>
 	<tr>
 		<td>
-			<a href="/quizes/<%=quizes[i].id%>"><%=quizes[i].pregunta%></a>
+			<a class="enlaceGenerico" href="/quizes/<%=quizes[i].id%>"><%=quizes[i].pregunta%></a>
+		</td>
+		<td>
+			<a class="boton naranja" href="#">Editar</a>
+			<a class="boton rojo" href="#">Borrar</a>
 		</td>
 	</tr>
 <% } %>

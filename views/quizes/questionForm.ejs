@@ -13,6 +13,16 @@
 			<label for="resp" class="rem">Respuesta: </label>
 			<input type="text" id="resp" name="quiz[respuesta]" value="<%= quiz.respuesta %>" />
 		</div>
+		<div class="dvLabelYselect">
+			<label for="cat" class="rem">Categoría: </label>
+			<select id="cat" name="quiz[CategoryId]">
+				<option value="">Selecciona categoría</option>
+				<% for(var i in categories) { %>
+					<option value="<%= categories[i].id %>" <%= quiz.CategoryId === categories[i].id ? 'selected' : ' ' %>><%= categories[i].nombre %></option>
+				<% } %>
+				
+			</select>
+		</div>
 		<div class="dvBotonera">
 		<a class="boton rojo" href="/quizes">Cancelar</a>
 		<a class="boton azul" href="#" onclick="document.getElementById('frmQuestion').submit()">Guardar</a>

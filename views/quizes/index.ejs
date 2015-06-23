@@ -21,11 +21,15 @@
 <table id="lstPreguntas">
 <tr>
 	<th> Preguntas </th>
+	<th> Categorías </th>
 </tr>
 <% var i; for(i = 0; i < quizes.length; i++) {%>
 	<tr>
 		<td>
 			<a class="enlaceGenerico" href="/quizes/<%= quizes[i].id %>"><%=quizes[i].pregunta%></a>
+		</td>
+		<td>
+			<%= quizes[i].Category === null ? '<No asignada>' : quizes[i].Category.nombre %>
 		</td>
 		<td>
 			<a class="boton naranja" href="/quizes/<%= quizes[i].id %>/edit">Editar</a>

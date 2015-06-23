@@ -26,3 +26,8 @@ input[type="text"]
 {
 	width: 280px;
 }
+
+select
+{
+	width: 285px;	
+}

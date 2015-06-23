@@ -1,7 +1,9 @@
 <form id="frmResponderPregunta" method="get" action="/quizes/<%=quiz.id%>/answer">
 	<br/>
-	Pregunta: <%= quiz.pregunta %><p>
+	Pregunta de <strong>'<%= quiz.Category.nombre %>'</strong><br/><br/>
+	<p><strong><%= quiz.pregunta %><strong></p>
 	<br/>
 	<input type="text" name="respuesta" value="Responda aquí"/>
 	<a class="boton azul" href="#" onclick="document.getElementById('frmResponderPregunta').submit()">Responder</a>
+	<a class="boton azul" href="/quizes">Volver</a>
 </form>

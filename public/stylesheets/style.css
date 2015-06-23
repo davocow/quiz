@@ -301,6 +301,7 @@ body
   text-align: center; 
   border-top: 1px solid lightslategray;
   padding: 1% 0% 0% 0%;
+  overflow: scroll;
 } 	
 
  

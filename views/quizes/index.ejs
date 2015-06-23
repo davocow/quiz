@@ -25,10 +25,10 @@
 <% var i; for(i = 0; i < quizes.length; i++) {%>
 	<tr>
 		<td>
-			<a class="enlaceGenerico" href="/quizes/<%=quizes[i].id%>"><%=quizes[i].pregunta%></a>
+			<a class="enlaceGenerico" href="/quizes/<%= quizes[i].id %>"><%=quizes[i].pregunta%></a>
 		</td>
 		<td>
-			<a class="boton naranja" href="#">Editar</a>
+			<a class="boton naranja" href="/quizes/<%= quizes[i].id %>/edit">Editar</a>
 			<a class="boton rojo" href="#">Borrar</a>
 		</td>
 	</tr>

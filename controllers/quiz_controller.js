@@ -93,3 +93,32 @@ exports.create = function(req, res)
 	});
 };
 
+// GET /quizes/quizId/edit
+exports.edit = function(req, res)
+{
+	var quiz = req.quiz;
+	
+	res.render('quizes/questionForm', {quiz: quiz, action: '/quizes/' + quiz.id + '?_method=put', header: 'Edite la pregunta', errors: []});
+};
+
+// PUT /quizes/quizId
+exports.update = function(req, res)
+{
+	req.quiz.pregunta = req.body.quiz.pregunta;
+	req.quiz.respuesta = req.body.quiz.respuesta;
+	
+	req.quiz.validate().then(function(err){
+		if(err)
+		{
+			res.render('quizes/questionForm', {quiz: req.quiz, action: '/quizes/' + req.quiz.id + '?_method=put', header: 'Edite la pregunta', errors: err.errors});
+		}
+		else
+		{
+			req.quiz
+				.save({fields: ['pregunta', 'respuesta']})
+				.then(function(){
+					res.redirect('/quizes');
+				});
+		}
+	});
+}

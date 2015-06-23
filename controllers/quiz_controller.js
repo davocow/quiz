@@ -32,7 +32,7 @@ exports.index = function(req, res)
 	{
 		
 		models.Quiz.findAll({where: ["pregunta like ?", CleanSearch(req.query.search)]}).then(function(quizes){
-			res.render('quizes/index', {quizes: quizes});
+			res.render('quizes/index', {quizes: quizes, errors: []});
 		}).catch(function(error){
 			next(error);
 		});
@@ -40,7 +40,7 @@ exports.index = function(req, res)
 	else
 	{
 		models.Quiz.findAll().then(function(quizes){
-			res.render('quizes/index', {quizes: quizes});	
+			res.render('quizes/index', {quizes: quizes, errors: []});	
 		}).catch(function(error){
 			next(error);
 		});
@@ -50,7 +50,7 @@ exports.index = function(req, res)
 // GET /quizes/:quizId(\\d+)
 exports.show = function(req, res)
 {
-	res.render('quizes/show', {quiz: req.quiz});
+	res.render('quizes/show', {quiz: req.quiz, errors: []});
 };
 
 // GET /quizes/:quizId(\\d+)/answer
@@ -65,7 +65,7 @@ exports.answer = function(req, res)
 		{
 			solucion = 'Incorrecto :(';
 		}
-		res.render('quizes/answer', {respuesta: solucion, quiz: req.quiz});	
+		res.render('quizes/answer', {respuesta: solucion, quiz: req.quiz, errors: []});	
 };
 
 // GET /quizes/new
@@ -73,16 +73,23 @@ exports.new = function(req, res)
 {
 	var quiz = models.Quiz.build({pregunta: 'Pregunta', respuesta: 'Respuesta'});
 	
-	res.render('quizes/questionForm', {quiz: quiz, action: '/quizes/create', header: 'Nueva Pregunta'});
+	res.render('quizes/questionForm', {quiz: quiz, action: '/quizes/create', header: 'Nueva Pregunta', errors: []});
 };
 
 // POST /quizes/create
 exports.create = function(req, res)
 {
 	var quiz = models.Quiz.build(req.body.quiz);
-	
-	quiz.save({fields:["pregunta", "respuesta"]}).then(function(){
-		res.redirect('/quizes');
+	quiz.validate().then(function(err){
+		if(err)
+		{
+			res.render('quizes/questionForm', {quiz: quiz, action: '/quizes/create', header: 'Nueva Pregunta', errors: err.errors});
+		}
+		else{
+			quiz.save({fields:["pregunta", "respuesta"]}).then(function(){
+				res.redirect('/quizes');
+			});
+		}
 	});
 };
 

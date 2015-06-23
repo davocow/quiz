@@ -24,7 +24,16 @@
             <span><a class="boton menu" href="/author">Creditos</a></span>
         </nav>
         <div id="dvContenido" class="main">
-          <%- body %>
+            <% if(errors.length) { %>
+            <div class="seccionErrores">
+                Debe corregir: <br/>
+                <% for(var i in errors) { %>
+                  	<span><%= errors[i].message %></span><br />
+                <% } %>
+            </div>
+            <br/>
+            <% } %>
+            <%- body %>
         </div>
     </div>
     <footer id="footer">

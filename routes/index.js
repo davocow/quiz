@@ -25,6 +25,9 @@ router.get('/quizes/:quizId(\\d+)/edit', quizController.edit);
 router.post('/quizes/create', quizController.create);
 // PUT edit quiz
 router.put('/quizes/:quizId(\\d+)', quizController.update);
+
+// DELETE remove quiz
+router.delete('/quizes/:quizId(\\d+)', quizController.destroy);
 // GET credits page
 router.get('/author', authorController.author);
 

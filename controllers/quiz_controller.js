@@ -29,8 +29,7 @@ exports.load = function(req, res, next, quizId)
 exports.index = function(req, res)
 {
 	if(req.query.search)
-	{
-		
+	{	
 		models.Quiz.findAll({where: ["pregunta like ?", CleanSearch(req.query.search)]}).then(function(quizes){
 			res.render('quizes/index', {quizes: quizes, errors: []});
 		}).catch(function(error){
@@ -121,4 +120,13 @@ exports.update = function(req, res)
 				});
 		}
 	});
-}
+};
+
+exports.destroy = function(req, res)
+{
+	req.quiz.destroy().then(function(){
+		res.redirect('/quizes');
+	}).catch(function(error){
+		next(error);
+	});
+};

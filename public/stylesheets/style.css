@@ -228,11 +228,14 @@ input[type="text"]
 
 /* **** Fin de estilos FORMULARIO BUSQUEDA **** */
 
-/* **** Estilo Formuario Nueva/Modificar pregunta **** */
+/* INDEX de preguntas */
 
+.frmBorrarPregunta
+{
+  display: inline;
+}
 
-
-/* **** Fin Formuario Nueva/Modificar pregunta **** */
+/* *** FIN INDEX *** */
 
  /* Tabla genérica */
 table

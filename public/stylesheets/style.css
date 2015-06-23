@@ -332,6 +332,7 @@ nav span
 
 footer
 {
+  display: block;
   background: rgb(47,	58,	72);;
   text-align: center;
   padding: 10px 0px 10px 0px;
@@ -339,9 +340,13 @@ footer
   left: 0;
   bottom: 0;
   width: 100%;
-  position: fixed;
+  position: relative;
 }
 
+footer a
+{
+  margin: 0 auto;
+}
 /* **** LINKS FOOTER **** */
 footer a:link, footer a:hover, footer a:visited, a:active
 {

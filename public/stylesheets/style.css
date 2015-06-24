@@ -23,6 +23,8 @@
 
 /* Fin Zona ViewPort */
 
+/* **** Estilos Genéricos **** */
+
 * 
 { 
   margin: 0;
@@ -35,10 +37,19 @@ html
 }
 body
 {
-  background: lightslategray;
-  height: 100%;
-  font-size: small;
+background: lightslategray;
+height: 100%;
+font: 14px Georgia, serif;
 }
+
+header
+{
+  background: rgb(47,	58,	72);
+  text-align: center;
+  padding: 1%;
+}
+
+/* *************** */
 
 /* **** LINKS **** */
 .enlaceGenerico
@@ -152,7 +163,9 @@ body
 
 /* *************** */
 
-/* **** Estilo genérico formulario **** */
+
+
+/* **** Clases y estilos de formulario **** */
 
 .dvCabeceraFormulario
 {
@@ -196,8 +209,6 @@ body
 {
   margin-right: 5px;
 }
-
-
 
 .dvLabelYselect select
 {
@@ -277,10 +288,16 @@ td
 }
 /* Fin tabla genérica*/
 
-body 
+#hdCabecera
 {
-  font: 16px Georgia, serif;
+  width: 100%;
+  height: 25px;
+  left: 0;
+  top: 0;
+  position: fixed;
+  padding: 10px;
 }
+
 
 #page-wrap
 {
@@ -291,27 +308,20 @@ body
 
 #page-wrap > .main
 {
-  --padding: 1%;
   color: black;  
 }
 
 #dvContenido
 {
-  height: 90%;
+  height: 100%;
   background: white;
   text-align: center; 
   border-top: 1px solid lightslategray;
-  padding: 1% 0% 0% 0%;
+  padding-top: 80px;
+  margin-bottom: 45px;
   overflow: scroll;
+  clear: both;
 } 	
-
- 
-header
-{
-  background: rgb(47,	58,	72);
-  text-align: center;
-  padding: 1%;
-}
 
 header h2
 {
@@ -320,9 +330,13 @@ header h2
 
 nav
 {
-  padding: 1%;
+  padding-top: 8px;
+  padding-bottom: 8px;
   background: #eee;
   text-align: center;
+  width: 100%;
+  position: fixed;
+  margin-top: 45px;
 }
 
 nav span
@@ -340,7 +354,7 @@ footer
   left: 0;
   bottom: 0;
   width: 100%;
-  position: relative;
+  position: fixed;
 }
 
 footer a

@@ -1,3 +1,7 @@
+body{
+font: 16px Georgia, serif;
+}
+
 nav
 {
 	float: left;
@@ -5,6 +9,10 @@ nav
 	height: 90%;
 	border: 1px solid lightslategray;
 	padding: 1% 0% 0% 0%;
+	margin-top: 45px;
+	margin-bottom: 45px;
+	height: 100%;
+	
 }
 
 nav span
@@ -18,8 +26,11 @@ nav span
 {
 	background: white;
 	float: left;
-	width: 84.5%;
-	height: 90%;
+	width: 85%;
+	height: 100%;
+	padding-top: 40px;
+	margin-bottom: 45px;
+	float: right;
 }
 
 input[type="text"]
@@ -35,8 +46,5 @@ select
 footer
 {
   clear: both;
-  
-  bottom: 7.2%;
-  
-  
+  --bottom: 7.2%;
 }

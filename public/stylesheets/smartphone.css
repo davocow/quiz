@@ -1,6 +1,6 @@
 body
 {
-	font-size: large;
+	font-size: small;
 }
 
 h2 span, section h3 
@@ -11,4 +11,15 @@ h2 span, section h3
 footer, input
 {
 	font-size: large;
+}
+
+nav
+{
+	border-bottom: 1px solid rgb(50, 62, 77);
+}
+
+#dvContenido
+{
+	padding-top: 80px;	
+	margin-bottom: 55px; 
 }

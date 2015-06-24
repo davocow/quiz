@@ -1,0 +1,21 @@
+<br/>
+<div id="dvContendorLogin" class="dvContenedorFormulario">
+	<div class="dvCabeceraFormulario">
+		<h4><%= header %><h4>
+	</div>
+
+	<form id="frmLogin" method="post" action="<%= action %>">
+		<div class="dvLabelYinputTypeText">
+			<label for="login" class="rem">Login: </label>
+			<input type="text" id="login" name="login" />
+		</div>
+		<div class="dvLabelYinputTypeText">
+			<label for="password" class="rem">Password: </label>
+			<input type="password" id="password" name="password"/>
+		</div>
+		<div class="dvBotonera">
+		<a class="boton rojo" href="/quizes">Cancelar</a>
+		<a class="boton azul" onclick="document.getElementById('frmLogin').submit()">Login</a>
+		</div>
+	</form>
+</div>

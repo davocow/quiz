@@ -4,6 +4,7 @@ var router = express.Router();
 var quizController = require('../controllers/quiz_controller');
 var authorController = require('../controllers/author_controller');
 var commentController = require('../controllers/comment_controller');
+var sessionController = require('../controllers/session_controller');
 
 router.param('quizId', quizController.load);
 
@@ -33,6 +34,13 @@ router.delete('/quizes/:quizId(\\d+)', quizController.destroy);
 router.get('/quizes/:quizId(\\d+)/comments/new', commentController.new);
 // POST create comment for question
 router.post('/quizes/:quizId(\\d+)/comments', commentController.create);
+
+// GET login page
+router.get('/login', sessionController.new);
+// POST check login and create session
+router.post('/login', sessionController.create);
+// DELETE delete session
+router.delete('/logout', sessionController.destroy);
 
 // GET credits page
 router.get('/author', authorController.author);

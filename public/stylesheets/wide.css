@@ -33,7 +33,7 @@ nav span
 	float: right;
 }
 
-input[type="text"]
+input[type="text"], input[type="password"]
 {
 	width: 280px;
 }
@@ -43,8 +43,11 @@ select
 	width: 285px;	
 }
 
+header{
+	text-align: center;
+}
+
 footer
 {
   clear: both;
-  --bottom: 7.2%;
 }

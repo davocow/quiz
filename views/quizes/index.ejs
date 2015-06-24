@@ -33,7 +33,7 @@
 		</td>
 		<td>
 			<a class="boton naranja" href="/quizes/<%= quizes[i].id %>/edit">Editar</a>
-			<form id="frmBorrarPregunta_<%=quizes[i].id %>" method="post" class="frmBorrarPregunta" action="/quizes/<%= quizes[i].id %>?_method=delete">
+			<form id="frmBorrarPregunta_<%=quizes[i].id %>" method="post" class="frmBotonBorrar" action="/quizes/<%= quizes[i].id %>?_method=delete">
 				<a class="boton rojo" onclick="return confirm('¿Desea eliminar \'<%= quizes[i].pregunta %>\'?') ? document.getElementById('frmBorrarPregunta_<%= quizes[i].id %>').submit() : false">Borrar</a>
 			</form>
 		</td>

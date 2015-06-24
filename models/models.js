@@ -28,6 +28,7 @@ var bbdd = new Sequelize(DB_name, user, pwd, {
 var Quiz = bbdd.import(path.join(__dirname, 'quiz'));
 var Category = bbdd.import(path.join(__dirname, 'category'));
 var Comment = bbdd.import(path.join(__dirname, 'comment'));
+var User = bbdd.import(path.join(__dirname, 'user'));
 
 //1:1 --> belongsTo y hasOne
 //1:N --> belongsTo y hasMany
@@ -45,6 +46,7 @@ Quiz.hasMany(Comment);
 exports.Quiz = Quiz;
 exports.Category = Category;
 exports.Comment = Comment;
+exports.User = User;
 // Crea e inicializa la tabla de preguntas en DB
 bbdd.sync().then(function(){
 	//Ejecutamos el callback, primero, de la tabla CATEGORY, para cargar las categorias necesarias
@@ -86,6 +88,16 @@ bbdd.sync().then(function(){
 											//Creamos otra categoria
 											Category.create({nombre: 'Otros'}).then(function(){
 												console.log('Categoría \'Otros\' creada.');
+												
+												User.count().then(function(count){
+													if(count === 0)
+													{
+														var crypto = require('crypto');		
+														User.create({login: 'demo', password: crypto.createHash('md5').update('demo').digest("hex")}).then(function(){
+															console.log('Usuario DEMO creado.');
+														}); 
+													}
+												});
 											});
 										});
 									});

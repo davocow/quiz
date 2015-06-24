@@ -45,7 +45,7 @@ font: 14px Georgia, serif;
 header
 {
   background: rgb(47,	58,	72);
-  text-align: center;
+  text-align: left;
   padding: 1%;
 }
 
@@ -160,6 +160,18 @@ header
   background: red;
 }
 
+.blanco
+{
+  background: white;
+  color: rgb(50, 62, 77);
+  cursor: pointer;
+}
+
+.blanco:hover
+{
+  background: lightslategray
+}
+
 
 /* *************** */
 
@@ -199,7 +211,7 @@ header
   margin-left: 5px;
 }
 
-.dvLabelYinputTypeText input[type="text"]
+.dvLabelYinputTypeText input[type="text"], input[type="password"]
 {
   margin-right: 5px; 
   font-size: small;
@@ -230,7 +242,7 @@ header
   margin-bottom: 1.2%;
 }
 
-input[type="text"]
+input[type="text"], input[type="password"]
 {
   width: 160px;
   font-size: small;
@@ -262,7 +274,7 @@ select
   position: relative;
 }
 
-#dvContenedor div label, input[type="text"]
+#dvContenedor div label, input[type="text"], input[type="password"]
 {
   margin-top: 5px;
   margin-right: 5px;
@@ -273,7 +285,7 @@ select
 
 /* INDEX de preguntas */
 
-.frmBorrarPregunta
+.frmBotonBorrar
 {
   display: inline;
 }
@@ -304,6 +316,14 @@ td
   padding: 10px;
 }
 
+#btnLoginOrLogout
+{
+  right: 0;
+  top: 1.4%;
+  float:right;
+  margin-right: 2%;
+  position: fixed;
+}
 
 #page-wrap
 {
@@ -343,6 +363,7 @@ nav
   width: 100%;
   position: fixed;
   margin-top: 45px;
+  border-bottom: 1px solid lightslategray;
 }
 
 nav span

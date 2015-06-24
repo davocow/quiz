@@ -20,15 +20,15 @@ router.get('/quizes/:quizId(\\d+)', quizController.show);
 // GET answer page
 router.get('/quizes/:quizId(\\d+)/answer', quizController.answer);
 //GET new quiz page
-router.get('/quizes/new', quizController.new)
+router.get('/quizes/new', sessionController.loginRequired, quizController.new)
 // GET edit quiz page
-router.get('/quizes/:quizId(\\d+)/edit', quizController.edit);
+router.get('/quizes/:quizId(\\d+)/edit', sessionController.loginRequired, quizController.edit);
 // POST create quiz page
-router.post('/quizes/create', quizController.create);
+router.post('/quizes/create', sessionController.loginRequired, quizController.create);
 // PUT edit quiz
-router.put('/quizes/:quizId(\\d+)', quizController.update);
+router.put('/quizes/:quizId(\\d+)', sessionController.loginRequired, quizController.update);
 // DELETE remove quiz
-router.delete('/quizes/:quizId(\\d+)', quizController.destroy);
+router.delete('/quizes/:quizId(\\d+)', sessionController.loginRequired, quizController.destroy);
 
 // GET new comment for question
 router.get('/quizes/:quizId(\\d+)/comments/new', commentController.new);

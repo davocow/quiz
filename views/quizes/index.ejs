@@ -14,7 +14,9 @@
 		</div>
 	</form>
 </br>
-<a class="boton azul" href="/quizes/new">Crear Pregunta</a>
+<% if(session.user) { %>
+	<a class="boton azul" href="/quizes/new">Crear Pregunta</a>
+<% } %>
 </br>
 </br>
 <% if(quizes.length > 0) {%>
@@ -31,12 +33,14 @@
 		<td>
 			<%= quizes[i].Category === null ? '<No asignada>' : quizes[i].Category.nombre %>
 		</td>
-		<td>
-			<a class="boton naranja" href="/quizes/<%= quizes[i].id %>/edit">Editar</a>
-			<form id="frmBorrarPregunta_<%=quizes[i].id %>" method="post" class="frmBotonBorrar" action="/quizes/<%= quizes[i].id %>?_method=delete">
-				<a class="boton rojo" onclick="return confirm('¿Desea eliminar \'<%= quizes[i].pregunta %>\'?') ? document.getElementById('frmBorrarPregunta_<%= quizes[i].id %>').submit() : false">Borrar</a>
-			</form>
-		</td>
+		<% if(session.user) { %>
+			<td>
+				<a class="boton naranja" href="/quizes/<%= quizes[i].id %>/edit">Editar</a>
+				<form id="frmBorrarPregunta_<%=quizes[i].id %>" method="post" class="frmBotonBorrar" action="/quizes/<%= quizes[i].id %>?_method=delete">
+					<a class="boton rojo" onclick="return confirm('¿Desea eliminar \'<%= quizes[i].pregunta %>\'?') ? document.getElementById('frmBorrarPregunta_<%= quizes[i].id %>').submit() : false">Borrar</a>
+				</form>
+			</td>
+		<% } %>
 	</tr>
 <% } %>
 </table>

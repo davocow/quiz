@@ -9,7 +9,7 @@ exports.autenticar = function(login, password, callback)
 			var hash = crypto.createHash('md5').update(password).digest("hex");
 			if(user.password === hash)
 			{
-				callback(null, users);
+				callback(null, user);
 			}
 			else
 			{

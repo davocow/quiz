@@ -1,0 +1,16 @@
+<br/>
+<div id="dvContendorNuevaModificarComentario" class="dvContenedorFormulario">
+	<div class="dvCabeceraFormulario">
+		<h4><%= header %><h4>
+	</div>
+
+	<form id="frmComment" method="post" action="<%= action %>">
+		<div class="dvLabelYinputTypeText">
+			<input type="text" id="texto" name="comment[texto]" value="" />
+		</div>
+		<div class="dvBotonera">
+		<a class="boton rojo" href="/quizes">Cancelar</a>
+		<a class="boton azul" onclick="document.getElementById('frmComment').submit()">Comentar</a>
+		</div>
+	</form>
+</div>

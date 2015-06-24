@@ -11,7 +11,7 @@ function CleanSearch(search)
 // Autoload!
 exports.load = function(req, res, next, quizId)
 {
-	models.Quiz.findById(quizId, {include: [models.Category]}).then(function(quiz){
+	models.Quiz.findById(quizId, {include: [models.Category, models.Comment]}).then(function(quiz){
 		if(quiz)
 		{
 			req.quiz = quiz;

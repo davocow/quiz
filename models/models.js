@@ -27,13 +27,24 @@ var bbdd = new Sequelize(DB_name, user, pwd, {
 // Importar la definición de la tabla Quiz en quiz.js
 var Quiz = bbdd.import(path.join(__dirname, 'quiz'));
 var Category = bbdd.import(path.join(__dirname, 'category'));
+var Comment = bbdd.import(path.join(__dirname, 'comment'));
 
+//1:1 --> belongsTo y hasOne
+//1:N --> belongsTo y hasMany
+//N:M --> belongsToMany y hasMany
+
+// Relación con Category
 Quiz.belongsTo(Category);
 Category.hasMany(Quiz);
+
+// Relación con Comment
+Comment.belongsTo(Quiz);
+Quiz.hasMany(Comment);
 
 // Exportamos la definición de la tabla QUIZ y CATEGORY
 exports.Quiz = Quiz;
 exports.Category = Category;
+exports.Comment = Comment;
 // Crea e inicializa la tabla de preguntas en DB
 bbdd.sync().then(function(){
 	//Ejecutamos el callback, primero, de la tabla CATEGORY, para cargar las categorias necesarias

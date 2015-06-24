@@ -1,9 +1,32 @@
+<br/>
+<div class="dvContenedorFormulario">
 <form id="frmResponderPregunta" method="get" action="/quizes/<%=quiz.id%>/answer">
 	<br/>
-	Pregunta de <strong>'<%= quiz.Category.nombre %>'</strong><br/><br/>
-	<p><strong><%= quiz.pregunta %><strong></p>
+	<div>
+		Pregunta de <strong>'<%= quiz.Category.nombre %>'</strong><br/><br/>
+		<p><strong><%= quiz.pregunta %></strong></p>
+	</div>
 	<br/>
-	<input type="text" name="respuesta" value="Responda aquí"/>
+	<div class="dvLabelYinputTypeText">
+		<input type="text" name="respuesta" value="Responda aquí"/>
+	</div>
+	<div class="dvBotonera">
 	<a class="boton azul" href="#" onclick="document.getElementById('frmResponderPregunta').submit()">Responder</a>
-	<a class="boton azul" href="/quizes">Volver</a>
+	<a class="boton rojo" href="/quizes">Volver</a>
+	</div>	
 </form>
+</div>
+<br/>
+<br/>
+<div class="dvContenedorComentarios">
+	<a class="boton azul" href="/quizes/<%= quiz.id %>/comments/new">Nuevo Comentario</a>
+	<br/><br/>
+	<p><strong>Comentarios:</strong></p>
+	<% if(quiz.Comments.length === 0) { %>
+	
+	<% } else {
+			for(index in quiz.Comments) { %>
+				<p>- <%=quiz.Comments[index].texto %> </p>
+	<% } %> 
+	<% 		} %>
+</div>

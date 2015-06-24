@@ -3,6 +3,7 @@ var router = express.Router();
 
 var quizController = require('../controllers/quiz_controller');
 var authorController = require('../controllers/author_controller');
+var commentController = require('../controllers/comment_controller');
 
 router.param('quizId', quizController.load);
 
@@ -25,9 +26,14 @@ router.get('/quizes/:quizId(\\d+)/edit', quizController.edit);
 router.post('/quizes/create', quizController.create);
 // PUT edit quiz
 router.put('/quizes/:quizId(\\d+)', quizController.update);
-
 // DELETE remove quiz
 router.delete('/quizes/:quizId(\\d+)', quizController.destroy);
+
+// GET new comment for question
+router.get('/quizes/:quizId(\\d+)/comments/new', commentController.new);
+// POST create comment for question
+router.post('/quizes/:quizId(\\d+)/comments', commentController.create);
+
 // GET credits page
 router.get('/author', authorController.author);
 

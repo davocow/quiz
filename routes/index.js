@@ -7,6 +7,7 @@ var commentController = require('../controllers/comment_controller');
 var sessionController = require('../controllers/session_controller');
 
 router.param('quizId', quizController.load);
+router.param('commentId', commentController.load);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -34,6 +35,8 @@ router.delete('/quizes/:quizId(\\d+)', sessionController.loginRequired, quizCont
 router.get('/quizes/:quizId(\\d+)/comments/new', commentController.new);
 // POST create comment for question
 router.post('/quizes/:quizId(\\d+)/comments', commentController.create);
+// PUT publis comment
+router.put('/quizes/:quizId(\\d+)/comments/:commentId(\\d+)/publish', sessionController.loginRequired, commentController.publish);
 
 // GET login page
 router.get('/login', sessionController.new);

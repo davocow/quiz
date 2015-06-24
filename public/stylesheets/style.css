@@ -183,6 +183,11 @@ header
   border: 1px solid rgb(50, 62, 77);
 }
 
+.dvComentarios
+{
+  margin: 5px;
+}
+
 /* **** Clases y estilos de formulario **** */
 
 .dvCabeceraFormulario
@@ -323,6 +328,11 @@ td
   float:right;
   margin-right: 2%;
   position: fixed;
+}
+
+#pComment, #btnPublishComment 
+{
+  display: inline;
 }
 
 #page-wrap

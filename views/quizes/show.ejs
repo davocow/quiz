@@ -11,7 +11,7 @@
 		<input type="text" name="respuesta" value="Responda aquí"/>
 	</div>
 	<div class="dvBotonera">
-	<a class="boton azul" href="#" onclick="document.getElementById('frmResponderPregunta').submit()">Responder</a>
+	<a class="boton azul" onclick="document.getElementById('frmResponderPregunta').submit()">Responder</a>
 	<a class="boton rojo" href="/quizes">Volver</a>
 	</div>	
 </form>
@@ -22,11 +22,30 @@
 	<a class="boton azul" href="/quizes/<%= quiz.id %>/comments/new">Nuevo Comentario</a>
 	<br/><br/>
 	<p><strong>Comentarios:</strong></p>
-	<% if(quiz.Comments.length === 0) { %>
-	
-	<% } else {
+	<div class="dvComentarios">
+		<% if(quiz.Comments.length === 0) { %>
+			<div class="dvComentarios">
+				<p>No existen comentarios. Se el primero en comentar :)</p>
+			</div>
+		<% } else {
+			var showMessage = true;
 			for(index in quiz.Comments) { %>
-				<p>- <%=quiz.Comments[index].texto %> </p>
-	<% } %> 
-	<% 		} %>
+				
+			<% if(quiz.Comments[index].publicado || session.user) { %>
+				<p id="pComment">- <%=quiz.Comments[index].texto %> </p>
+				<% showMessage = false %>
+				<% if(session.user && !quiz.Comments[index].publicado) { %>
+						<form id="frmPublishComment" class="frmBotonBorrar" method="post" action="/quizes/<%= quiz.id %>/comments/<%= quiz.Comments[index].id %>/publish?_method=PUT">
+								<a id="#btnPublishComment" class="boton azul" onclick="document.getElementById('frmPublishComment').submit()">Publicar</a>
+						</form>
+				<% } %>
+			<% } %>
+		<% } %> 
+		<% 	 } %>
+		<% if(showMessage) { %>
+			<div class="dvComentarios">
+				<p>No existen comentarios. Se el primero en comentar :)</p>
+			</div>
+		<% } %>
+	</div>
 </div>

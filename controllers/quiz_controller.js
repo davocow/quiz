@@ -1,4 +1,13 @@
 var models = require('../models/models');
+var Q = require('q');
+
+var statistics = {
+	quizes: 0,
+	comments: 0,
+	unpublishedComments: 0,
+	publishedComments: 0,
+	commentsbyQuestionAverage:0.0
+};
 
 function CleanSearch(search)
 {
@@ -7,6 +16,8 @@ function CleanSearch(search)
 		search = '%' + search + '%';
 		return search;
 }
+
+
 
 // Autoload!
 exports.load = function(req, res, next, quizId)
@@ -146,7 +157,36 @@ exports.destroy = function(req, res, next)
 	});
 };
 
+exports.calculateStatistcs = function(req, res, next)
+{
+	var countQuizes = models.Quiz.count().then(function(numQuestions){
+		statistics.quizes = numQuestions;
+	});
+	var countComments = models.Comment.count().then(function(numComments){
+		statistics.comments = numComments;
+	});
+	
+	var countUnpublishedComments = models.Comment.countUnpublishedComments().then(function(numUnpublishedComments){
+		statistics.unpublishedComments = numUnpublishedComments;
+	});
+	
+	var countPublishedComments = models.Comment.countPublishedComments().then(function(numPublishedComments){
+		statistics.publishedComments = numPublishedComments;
+	});
+	
+	Q.all([countQuizes, countComments, countUnpublishedComments, countPublishedComments]).then(function(){
+		console.log(statistics.numComments);
+		if(statistics.comments > 0 && statistics.quizes > 0)
+		{
+			statistics.commentsbyQuestionAverage = statistics.comments / statistics.quizes;
+		}
+		next();
+	}).catch(function(error){
+		next(error);
+	});	
+};
+
 exports.statistics = function(req, res, next)
 {
-	res.render('quizes/statistics', {errors: []});
-}
+	res.render('quizes/statistics', {statistics: statistics, errors: []});
+};

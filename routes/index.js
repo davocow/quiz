@@ -31,7 +31,7 @@ router.put('/quizes/:quizId(\\d+)', sessionController.loginRequired, quizControl
 // DELETE remove quiz
 router.delete('/quizes/:quizId(\\d+)', sessionController.loginRequired, quizController.destroy);
 //GET statistic page
-router.get('/quizes/statistics', quizController.statistics);
+router.get('/quizes/statistics', quizController.calculateStatistcs, quizController.statistics);
 
 // GET new comment for question
 router.get('/quizes/:quizId(\\d+)/comments/new', commentController.new);

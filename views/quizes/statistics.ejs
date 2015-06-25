@@ -5,22 +5,25 @@
 	</tr>
 	<tr>
 		<td>Número de preguntas existentes</td>
-		<td></td>
+		<td><%= statistics.quizes %></td>
 	</tr>
 	<tr>
 		<td>Número de comentarios totales</td>
-		<td></td>
+		<td><%= statistics.comments %></td>
 	</tr>
 	<tr>
 		<td>Número medio de comentarios por pregunta</td>
-		<td></td>
+		<td><%= statistics.commentsbyQuestionAverage %></td>
 	</tr>
 	<tr>
 		<td>Número de preguntas sin comentarios</td>
-		<td></td>
+		<td><%= statistics.unpublishedComments %></td>
 	</tr>
 	<tr>
 		<td>Número de preguntas con comentarios</td>
-		<td></td>
+		<td><%= statistics.publishedComments %></td>
+	</tr>
+	<tr>
+		<td colspan="2" style="text-align: right; margin-right: 10px;"><a class="boton rojo" href="/quizes">Volver</a></td>
 	</tr>
 </table>

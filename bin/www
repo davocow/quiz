@@ -6,7 +6,9 @@
 
 var app = require('../app');
 var debug = require('debug')('quiz:server');
+var fs = require('fs'); //Filesystem
 var http = require('http');
+var https = require('https');
 
 /**
  * Get port from environment and store in Express.
@@ -15,16 +17,27 @@ var http = require('http');
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
+var options = {
+  key: fs.readFileSync('certs/quiz-2015-davo-key.pem').toString(),
+  cert: fs.readFileSync('certs/quiz-2015-davo-cert.pem').toString()
+};
+
+/**
+ * Create HTTPS server
+ */
+var secureServer = https.createServer(options, app); 
+secureServer.listen(8443, function(){
+  debug('Express server listening on port: ' + secureServer.address().port);
+});
+
 /**
  * Create HTTP server.
  */
-
 var server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
-
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);

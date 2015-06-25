@@ -175,17 +175,24 @@ header
 
 /* *************** */
 
+#btnNewComment
+{
+  margin: 10px 10px 15px 10px;
+}
+
 .dvContenedorComentarios
 {
   display: inline-block;
   margin: 0 auto;
-  padding: 1%;
   border: 1px solid rgb(50, 62, 77);
 }
 
 .dvComentarios
 {
-  margin: 5px;
+  background: lightslategray;
+  color: white;
+  padding: 4px 10px 4px 10px;
+  border-top: 1px solid rgb(50, 62, 77);
 }
 
 /* **** Clases y estilos de formulario **** */
@@ -236,7 +243,7 @@ header
 .dvLabelYselect select
 {
   margin-right: 5px;
-  font-size: large;
+  font-size: small;
 }
 
 .dvBotonera

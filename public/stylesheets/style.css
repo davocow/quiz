@@ -76,14 +76,14 @@ header
   text-align: left;
 }
 
-#lstPreguntas
+.tablaGenerica
 {
   margin: 0 auto;
   border-collapse: collapse;
   width: 69%;
 }
 
-#lstPreguntas th
+.tablaGenerica th
 {
   padding: 5px;
   background: lightslategray;
@@ -91,7 +91,7 @@ header
   color:white;
 }
 
-#lstPreguntas td
+.tablaGenerica td
 {
   padding: 5px;
   border: 1px solid rgb(50, 62, 77);

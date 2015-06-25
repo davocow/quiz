@@ -30,6 +30,8 @@ router.post('/quizes/create', sessionController.loginRequired, quizController.cr
 router.put('/quizes/:quizId(\\d+)', sessionController.loginRequired, quizController.update);
 // DELETE remove quiz
 router.delete('/quizes/:quizId(\\d+)', sessionController.loginRequired, quizController.destroy);
+//GET statistic page
+router.get('/quizes/statistics', quizController.statistics);
 
 // GET new comment for question
 router.get('/quizes/:quizId(\\d+)/comments/new', commentController.new);
@@ -37,6 +39,7 @@ router.get('/quizes/:quizId(\\d+)/comments/new', commentController.new);
 router.post('/quizes/:quizId(\\d+)/comments', commentController.create);
 // PUT publis comment
 router.put('/quizes/:quizId(\\d+)/comments/:commentId(\\d+)/publish', sessionController.loginRequired, commentController.publish);
+
 
 // GET login page
 router.get('/login', sessionController.new);

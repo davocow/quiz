@@ -136,6 +136,7 @@ exports.update = function(req, res)
 	});
 };
 
+// DELETE /quizes/quizId
 exports.destroy = function(req, res, next)
 {
 	req.quiz.destroy().then(function(){
@@ -144,3 +145,8 @@ exports.destroy = function(req, res, next)
 		next(error);
 	});
 };
+
+exports.statistics = function(req, res, next)
+{
+	res.render('quizes/statistics', {errors: []});
+}

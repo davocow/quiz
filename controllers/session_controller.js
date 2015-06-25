@@ -19,7 +19,7 @@ exports.create = function(req, res)
 			res.redirect('/login');
 			return;
 		}
-		req.session.user = {id: user.id, username:user.login};
+		req.session.user = {id: user.id, username:user.login, lastActivity: new Date()};
 		res.redirect(req.session.redir.toString());
 	});
 };

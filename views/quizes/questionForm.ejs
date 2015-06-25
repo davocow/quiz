@@ -6,12 +6,12 @@
 
 	<form id="frmQuestion" method="post" action="<%= action %>">
 		<div class="dvLabelYinputTypeText">
-			<label for="preg" class="rem">Pregunta: </label>
-			<input type="text" id="preg" name="quiz[pregunta]" value="<%= quiz.pregunta %>" />
+			<label for="txtPregunta" class="rem">Pregunta: </label>
+			<input type="text" id="txtPregunta" name="quiz[pregunta]" value="<%= quiz.pregunta %>" />
 		</div>
 		<div class="dvLabelYinputTypeText">
-			<label for="resp" class="rem">Respuesta: </label>
-			<input type="text" id="resp" name="quiz[respuesta]" value="<%= quiz.respuesta %>" />
+			<label for="txtRespuesta" class="rem">Respuesta: </label>
+			<input type="text" id="txtRespuesta" name="quiz[respuesta]" value="<%= quiz.respuesta %>" />
 		</div>
 		<div class="dvLabelYselect">
 			<label for="cat" class="rem">Categoría: </label>
@@ -29,3 +29,4 @@
 		</div>
 	</form>
 </div>
+<script type="text/javascript" src="/javascripts/quizes/questionForm.js"></script>

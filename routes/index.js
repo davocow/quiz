@@ -8,7 +8,7 @@ var sessionController = require('../controllers/session_controller');
 
 router.param('quizId', quizController.load);
 router.param('commentId', commentController.load);
-
+  
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Quiz', errors: [] });

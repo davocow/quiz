@@ -17,8 +17,6 @@ function CleanSearch(search)
 		return search;
 }
 
-
-
 // Autoload!
 exports.load = function(req, res, next, quizId)
 {
